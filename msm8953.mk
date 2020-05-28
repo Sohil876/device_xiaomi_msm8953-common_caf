@@ -79,8 +79,6 @@ PRODUCT_USES_QCOM_HARDWARE := true
 PRODUCT_BOARD_PLATFORM := msm8953
 
 # Device-specific Settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
