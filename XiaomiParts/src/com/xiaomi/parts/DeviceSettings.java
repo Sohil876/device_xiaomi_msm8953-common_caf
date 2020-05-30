@@ -12,6 +12,7 @@ import androidx.preference.SwitchPreference;
 
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
 import com.xiaomi.parts.ambient.AmbientGesturePreferenceActivity;
+import com.xiaomi.parts.kcal.Utils;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
 import com.xiaomi.parts.preferences.VibratorStrengthPreference;
@@ -22,7 +23,7 @@ import com.xiaomi.parts.preferences.CustomSeekBarPreference;
 import com.xiaomi.parts.R;
 
 public class DeviceSettings extends PreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Utils {
 
     private static final String CATEGORY_DISPLAY = "display";
     private static final String PREF_DEVICE_KCAL = "device_kcal";
@@ -48,7 +49,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private VibratorCallStrengthPreference mVibratorCallStrength;
     public static final String KEY_NOTIF_VIBSTRENGTH = "vib_notif_strength";
     private VibratorNotifStrengthPreference mVibratorNotifStrength;
-
+    private SecureSettingSwitchPreference mSetOnBoot;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -72,6 +73,9 @@ public class DeviceSettings extends PreferenceFragment implements
                 enhancerEnabled = false;
             }
         }
+
+	mSetOnBoot = (SecureSettingSwitchPreference) findPreference(PREF_SETONBOOT);
+        mSetOnBoot.setOnPreferenceChangeListener(this);
 
         SecureSettingSwitchPreference enableDirac = (SecureSettingSwitchPreference) findPreference(PREF_ENABLE_DIRAC);
         enableDirac.setOnPreferenceChangeListener(this);
@@ -159,6 +163,10 @@ public class DeviceSettings extends PreferenceFragment implements
                 break;
         }
         return true;
+    }
+
+    void setmSetOnBoot(boolean checked) {
+        mSetOnBoot.setChecked(checked);
     }
 
     private boolean isAppNotInstalled(String uri) {

@@ -8,12 +8,6 @@
     <com.xiaomi.parts.preferences.SecureSettingSwitchPreference
         android:defaultValue="false"
         android:dependency="kcal_enabled"
-        android:key="set_on_boot"
-        android:title="@string/set_on_boot" />
-
-    <com.xiaomi.parts.preferences.SecureSettingSwitchPreference
-        android:defaultValue="false"
-        android:dependency="kcal_enabled"
         android:key="grayscale"
         android:title="@string/grayscale" />
 
