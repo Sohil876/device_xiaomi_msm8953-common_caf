@@ -21,8 +21,10 @@ $(call inherit-product, vendor/xiaomi/msm8953-common/msm8953-common-vendor.mk)
 $(call inherit-product, vendor/pixeldust/configs/phone-xhdpi-4096-dalvik-heap.mk)
 
 # Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk) 
 
+PRODUCT_PACKAGES += \
+    XiaomiParts
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -262,8 +264,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power@1.2-service
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -368,12 +369,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/telephony_product_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/telephony_product_privapp-permissions-qti.xml
 
 # VR
-PRODUCT_PACKAGES += \
-    vr.msm8953
+#PRODUCT_PACKAGES += \
+ #   vr.msm8953
 
-PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service
+#PRODUCT_PACKAGES += \
+ #   android.hardware.vr@1.0-impl \
+  #  android.hardware.vr@1.0-service
 
 # Wifi
 PRODUCT_PACKAGES += \
