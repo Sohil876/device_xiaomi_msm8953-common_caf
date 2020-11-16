@@ -481,3 +481,6 @@ persist.vendor.usb.config.extra=none
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
+
+#
+qemu.hw.mainkeys=0
